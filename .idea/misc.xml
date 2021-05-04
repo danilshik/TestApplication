@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Danilshik/AndroidStudioProjects/Test/app/src/main/res/drawable-v24/ic_add.xml" value="0.16875" />
+        <entry key="..\:/Users/Danilshik/AndroidStudioProjects/Test/app/src/main/res/drawable-v24/ic_geo.xml" value="0.16875" />
+        <entry key="..\:/Users/Danilshik/AndroidStudioProjects/Test/app/src/main/res/drawable-v24/ic_hide_vector.xml" value="0.16875" />
+        <entry key="..\:/Users/Danilshik/AndroidStudioProjects/Test/app/src/main/res/drawable-v24/ic_minus.xml" value="0.16875" />
+        <entry key="..\:/Users/Danilshik/AndroidStudioProjects/Test/app/src/main/res/drawable-v24/ic_number_vector.xml" value="0.16875" />
+        <entry key="..\:/Users/Danilshik/AndroidStudioProjects/Test/app/src/main/res/drawable-v24/ic_time.xml" value="0.16875" />
+        <entry key="..\:/Users/Danilshik/AndroidStudioProjects/Test/app/src/main/res/drawable-v24/selector_stroke_color.xml" value="0.16875" />
+        <entry key="..\:/Users/Danilshik/AndroidStudioProjects/Test/app/src/main/res/font/pt_root_ui.xml" value="0.1828125" />
+        <entry key="..\:/Users/Danilshik/AndroidStudioProjects/Test/app/src/main/res/layout/activity_main.xml" value="0.18611111111111112" />
+        <entry key="..\:/Users/Danilshik/AndroidStudioProjects/Test/app/src/main/res/layout/fr_create_order_new.xml" value="0.264" />
+        <entry key="..\:/Users/Danilshik/AndroidStudioProjects/Test/app/src/main/res/layout/item_address_delivery.xml" value="0.18611111111111112" />
+        <entry key="..\:/Users/Danilshik/AndroidStudioProjects/Test/app/src/main/res/layout/item_how_delivery.xml" value="0.15260416666666668" />
+        <entry key="..\:/Users/Danilshik/AndroidStudioProjects/Test/app/src/main/res/layout/item_product_create_order.xml" value="0.15260416666666668" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Embedded JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

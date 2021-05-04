@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="700"
+        android:font="@font/pt_root_ui_regular"
+        app:fontStyle="normal"
+        app:fontWeight="700"
+        app:font="@font/pt_root_ui_regular"
+
+        />
+
+</font-family>
+<!--    //styleName: 21:28:700;-->
+<!--    font-family: PT Root UI;-->
+<!--    font-size: 21px;-->
+<!--    font-style: normal;-->
+<!--    font-weight: 700;-->
+<!--    line-height: 30px;-->
+<!--    letter-spacing: 0px;-->
+<!--    text-align: center;-->

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="OrderCreate">
+        <item name="android:layout_marginStart">@dimen/spacing_normal_16</item>
+        <item name="android:layout_marginEnd">@dimen/spacing_normal_16</item>
+    </style>
+
+
+    <style name="OrderCreate.TextViewTitle" parent="OrderCreate">
+        <item name="fontFamily">@font/pt_root_ui_bold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:layout_marginTop">32dp</item>
+        <item name="android:textColor">@color/orderCreatePrimaryTextColor</item>
+    </style>
+
+    <style name="OrderCreate.TextViewSubTitle" parent="OrderCreate">
+        <item name="fontFamily">@font/pt_root_ui_medium</item>
+        <item name="android:textSize">21sp</item>
+        <item name="android:textColor">@color/orderCreatePrimaryTextColor</item>
+    </style>
+
+    <style name="OrderCreate.TextViewTitleProduct" parent="OrderCreate">
+        <item name="fontFamily">@font/pt_root_ui_medium</item>
+        <item name="android:textSize">21sp</item>
+        <item name="android:textColor">@color/orderCreatePrimaryTextColor</item>
+    </style>
+
+    <style name="OrderCreate.TextView" parent="OrderCreate">
+        <item name="fontFamily">@font/pt_root_ui_regular</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/orderCreatePrimaryTextColor</item>
+    </style>
+
+    <style name="OrderCreate.TextView.Red" parent="OrderCreate.TextView">
+        <item name="fontFamily">@font/pt_root_ui_medium</item>
+        <item name="android:textColor">@color/orderCreateAccentColor</item>
+    </style>
+
+    <style name="OrderCreate.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
+        <item name="boxBackgroundColor">@color/orderCreateBackgroundColor</item>
+        <item name="android:textColor">@color/orderCreateInputTextColor</item>
+        <item name="errorTextColor">@color/orderCreateErrorColor</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeColor">@drawable/selector_stroke_color</item>
+        <item name="android:layout_marginStart">@dimen/spacing_normal_16</item>
+        <item name="android:layout_marginEnd">@dimen/spacing_normal_16</item>
+        <item name="materialThemeOverlay">@style/MyThemeOverlayFilledDense</item>
+
+    </style>
+
+
+    <style name="OrderCreate.TextInputLayout.CustomIcon" parent="OrderCreate.TextInputLayout">
+        <item name="endIconMode">custom</item>
+    </style>
+
+    <style name="OrderCreate.Button" parent="Widget.MaterialComponents.Button">
+    </style>
+
+
+    <style name="MyDense" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
+        <item name="materialThemeOverlay">@style/MyThemeOverlayFilledDense</item>
+    </style>
+
+    <style name="MyThemeOverlayFilledDense">
+        <item name="editTextStyle">@style/MyTextInputEditText_filledBox_dense</item>
+    </style>
+
+    <style name="MyTextInputEditText_filledBox_dense" parent="@style/Widget.MaterialComponents.TextInputEditText.FilledBox.Dense">
+        <item name="android:paddingTop">24dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:paddingStart">0dp</item>
+
+    </style>
+</resources>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Откуда забрать?"
+        android:layout_marginTop="32dp"
+        style="@style/OrderCreate.TextViewSubTitle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/tv_title"
+        app:layout_constraintBottom_toBottomOf="@id/tv_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_close"
+        android:layout_marginEnd="@dimen/spacing_normal_16"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tl_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Адрес"
+
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        style="@style/OrderCreate.TextInputLayout.CustomIcon"
+        app:endIconDrawable="@drawable/ic_geo">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tl_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tl_address"
+        android:hint="Номер"
+        style="@style/OrderCreate.TextInputLayout.CustomIcon"
+        app:endIconDrawable="@drawable/ic_number_vector">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv_address_optional"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Дополнительно"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tl_number"
+        style="@style/OrderCreate.TextView.Red"/>
+
+    <ImageView
+        android:id="@+id/iv_expandable"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="22dp"
+        app:layout_constraintTop_toTopOf="@id/tv_address_optional"
+        app:layout_constraintBottom_toBottomOf="@id/tv_address_optional"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_expandable"/>
+
+    <LinearLayout
+        android:id="@+id/ll_address_optional"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/tv_address_optional">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tl_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tl_address"
+            android:hint="Контактное лицо"
+            style="@style/OrderCreate.TextInputLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tl_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tl_address"
+            android:hint="Комментарий"
+            style="@style/OrderCreate.TextInputLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tl_money_operation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tl_address"
+            android:hint="Денежная операция"
+            style="@style/OrderCreate.TextInputLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_date_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/ll_address_optional"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/spacing_normal_16"
+        app:icon="@drawable/ic_time"
+        android:layout_marginStart="@dimen/spacing_normal_16"
+        app:iconTint="@color/orderCreatePrimaryTextColor"
+        android:textColor="@color/orderCreatePrimaryTextColor"
+        android:textSize="15sp"
+        android:fontFamily="@font/pt_root_ui_bold"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+        app:cornerRadius="16dp"
+        android:text="Дата и время"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        app:layout_constraintTop_toBottomOf="@id/btn_date_time"
+        android:id="@+id/rv_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tv_add_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/rv_product"
+        android:text="Добавить груз"
+        style="@style/OrderCreate.TextView.Red"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
