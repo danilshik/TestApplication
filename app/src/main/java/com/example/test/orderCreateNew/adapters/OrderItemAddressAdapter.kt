@@ -1,6 +1,7 @@
 package com.example.test.orderCreateNew.adapters
 
 import android.os.Build
+import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -66,6 +67,8 @@ class OrderItemAddressAdapter() : ListAdapter<OrderItemAddress, OrderItemAddress
 
         private val ivClose : ImageView = itemView.findViewById(R.id.iv_close)
 
+
+
         override fun bind(item: OrderItemAddress) {
             if(adapterPosition == 0)
                 tvTitle.text = "Откуда забрать?"
@@ -107,15 +110,19 @@ class OrderItemAddressAdapter() : ListAdapter<OrderItemAddress, OrderItemAddress
                 listener?.changeOptionalVisibility(item)
             }
 
-
-            val adapterProducts = OrderItemProductAdapter(item, listenerProduct)
-            with(rvProduct){
-                layoutManager = LinearLayoutManager(itemView.context)
-                adapter = adapterProducts
-                isNestedScrollingEnabled = true
+            val currentAdapter = rvProduct.adapter as? OrderItemProductAdapter
+            val resultAdapter = if(currentAdapter == null){
+                rvProduct.layoutManager = LinearLayoutManager(itemView.context)
+                rvProduct.isNestedScrollingEnabled = true
+                val newAdapter = OrderItemProductAdapter(item, listenerProduct)
+                rvProduct.adapter = newAdapter
+                newAdapter
+            } else{
+                currentAdapter
             }
+
             Log.d("AdapterAddress", item.products.size.toString())
-            adapterProducts.submitList(item.products)
+            resultAdapter.submitList(item.products)
 
             tvAddProduct.setOnClickListener {
                 listener?.addItemProduct(item)
