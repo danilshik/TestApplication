@@ -17,6 +17,7 @@ import com.example.test.Model.OrderItemProduct
 import com.example.test.R
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.android.extensions.LayoutContainer
+import kotlin.random.Random
 
 class OrderItemAddressAdapter() : ListAdapter<OrderItemAddress, OrderItemAddressAdapter.ViewHolder>(OrderItemAddressDiffCallback()){
     private var listener : OrderItemAddressChangeListener? = null
@@ -32,6 +33,7 @@ class OrderItemAddressAdapter() : ListAdapter<OrderItemAddress, OrderItemAddress
         return OrderItemAddressHolder(
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_address_delivery, parent, false)
+                .also { it.setBackgroundColor(Random.nextInt()) }
         )
     }
 
@@ -107,20 +109,23 @@ class OrderItemAddressAdapter() : ListAdapter<OrderItemAddress, OrderItemAddress
                 listener?.changeOptionalVisibility(item)
             }
 
-
-            val adapterProducts = OrderItemProductAdapter(item, listenerProduct)
-            with(rvProduct){
-                layoutManager = LinearLayoutManager(itemView.context)
-                adapter = adapterProducts
-                isNestedScrollingEnabled = true
+            val currentAdapter = rvProduct.adapter as? OrderItemProductAdapter
+            val resultAdapter = if (currentAdapter == null) {
+                rvProduct.layoutManager = LinearLayoutManager(itemView.context)
+                rvProduct.isNestedScrollingEnabled = true
+                val newAdapter = OrderItemProductAdapter(item, listenerProduct)
+                rvProduct.adapter = newAdapter
+                newAdapter
+            } else {
+                currentAdapter
             }
+            resultAdapter.submitList(item.products)
+
             Log.d("AdapterAddress", item.products.size.toString())
-            adapterProducts.submitList(item.products)
 
             tvAddProduct.setOnClickListener {
                 listener?.addItemProduct(item)
             }
-
         }
     }
 

@@ -15,4 +15,8 @@ class OrderItemAddressDiffCallback : DiffUtil.ItemCallback<OrderItemAddress>() {
         Log.d("OrderItemAddress", "areContentsTheSame $test")
         return test
     }
+
+    override fun getChangePayload(oldItem: OrderItemAddress, newItem: OrderItemAddress): Any? {
+        return Any()
+    }
 }

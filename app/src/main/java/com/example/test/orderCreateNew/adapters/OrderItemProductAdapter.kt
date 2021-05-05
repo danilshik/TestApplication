@@ -1,9 +1,11 @@
 package com.example.test.orderCreateNew.adapters
 
 import android.os.Build
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.widget.doOnTextChanged
@@ -15,6 +17,7 @@ import com.example.test.Model.OrderItemProduct
 import com.example.test.R
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.android.extensions.LayoutContainer
+import kotlin.random.Random
 
 class OrderItemProductAdapter() : ListAdapter<OrderItemProduct, OrderItemProductAdapter.ViewHolder>(
     OrderItemProductDiffCallback()
@@ -33,6 +36,9 @@ class OrderItemProductAdapter() : ListAdapter<OrderItemProduct, OrderItemProduct
         return OrderItemProductHolder(
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_product_create_order, parent, false)
+                .also {
+                    it.setBackgroundColor(Random.nextInt())
+                }
         )
     }
 
@@ -58,22 +64,27 @@ class OrderItemProductAdapter() : ListAdapter<OrderItemProduct, OrderItemProduct
         private val ivCountProductAdd : ImageView = itemView.findViewById(R.id.iv_count_product_add)
         private val tvCountProductValue : TextView = itemView.findViewById(R.id.tv_count_product_value)
         private val ivCountProductMinus : ImageView = itemView.findViewById(R.id.iv_count_product_minus)
+
+        private var watcher: TextWatcher? = null
+
         override fun bind(item: OrderItemProduct) {
             tvTitle.text = "Груз №${adapterPosition + 1}"
-            tlProduct.editText?.setText(item.name)
-            tlProduct.editText?.doOnTextChanged { text, _, _, _ ->
+            tlProduct.editText?.removeTextChangedListener(watcher)
+            tlProduct.editText?.setTextIfChanged(item.name)
+            this.watcher = tlProduct.editText?.doOnTextChanged { text, _, _, _ ->
                 listener?.changeItemProductName(address, item, text.toString())
             }
-            tlPrice.editText?.setText(item.price)
-            tlPrice.editText?.doOnTextChanged { text, _, _, _ ->
-                listener?.changeItemProduct(address, item.copy(price = text.toString()))
-            }
-            tlWeight.editText?.setText(item.weight)
-            tlWeight.isFocusable = true
-            tlWeight.editText?.setSelection(item.weight?.length?: 0)
-            tlWeight.editText?.doOnTextChanged { text, _, _, _ ->
-                listener?.changeItemProduct(address, item.copy(weight = text.toString()))
-            }
+// TODO Same for all editTexts
+//            tlPrice.editText?.setText(item.price)
+//            tlPrice.editText?.doOnTextChanged { text, _, _, _ ->
+//                listener?.changeItemProduct(address, item.copy(price = text.toString()))
+//            }
+//            tlWeight.editText?.setText(item.weight)
+//            tlWeight.isFocusable = true
+//            tlWeight.editText?.setSelection(item.weight?.length?: 0)
+//            tlWeight.editText?.doOnTextChanged { text, _, _, _ ->
+//                listener?.changeItemProduct(address, item.copy(weight = text.toString()))
+//            }
             tvCountProductValue.text = item.count.toString()
 
 
@@ -96,6 +107,11 @@ class OrderItemProductAdapter() : ListAdapter<OrderItemProduct, OrderItemProduct
         }
 
     }
+}
+
+fun EditText.setTextIfChanged(text: String?) {
+    if (text == this.text?.toString()) return
+    setText(text)
 }
 
 interface OrderItemProductChangeListener{

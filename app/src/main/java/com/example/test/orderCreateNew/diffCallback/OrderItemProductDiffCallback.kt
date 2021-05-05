@@ -17,4 +17,9 @@ class OrderItemProductDiffCallback : DiffUtil.ItemCallback<OrderItemProduct>() {
         Log.d("OrderItemProduct", "areContentsTheSame $test")
         return test
     }
+
+    override fun getChangePayload(oldItem: OrderItemProduct, newItem: OrderItemProduct): Any? {
+        return Any()
+    }
+
 }
